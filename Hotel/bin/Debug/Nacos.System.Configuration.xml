@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Nacos.System.Configuration</name>
+    </assembly>
+    <members>
+        <member name="P:Nacos.System.Configuration.ConfigListener.DataId">
+            <summary>
+            Configuration ID
+            </summary>
+        </member>
+        <member name="P:Nacos.System.Configuration.ConfigListener.Group">
+            <summary>
+            Configuration group
+            </summary>
+        </member>
+        <member name="P:Nacos.System.Configuration.ConfigListener.NacosConfigurationParser">
+            <summary>
+            The configuration parser, default is json
+            </summary>
+        </member>
+        <member name="P:Nacos.System.Configuration.ConfigListenerCollection.Item(System.Int32)">
+            <summary>
+            Gets or sets the <see cref="T:Nacos.System.Configuration.ConfigListener"/> at the specified index.
+            </summary>
+            <value>
+            The <see cref="T:Nacos.System.Configuration.ConfigListener"/>.
+            </value>
+            <param name="index">The index.</param>
+        </member>
+        <member name="M:Nacos.System.Configuration.ConfigListenerCollection.CreateNewElement">
+            <summary>
+            Creates the new element.
+            </summary>
+        </member>
+        <member name="M:Nacos.System.Configuration.ConfigListenerCollection.GetElementKey(System.Configuration.ConfigurationElement)">
+            <summary>
+            Gets the element key.
+            </summary>
+            <param name="element">The element.</param>
+        </member>
+        <member name="P:Nacos.System.Configuration.NacosConfigurationSection.ServerAddresses">
+            <summary>
+            Nacos Server Addresses
+            </summary>
+        </member>
+        <member name="P:Nacos.System.Configuration.NacosConfigurationSection.Listeners">
+            <summary>
+            The configuration listeners
+            </summary>
+        </member>
+        <member name="P:Nacos.System.Configuration.NacosConfigurationSection.Tenant">
+            <summary>
+            Tenant information. It corresponds to the Namespace field in Nacos.
+            </summary>
+        </member>
+        <member name="P:Nacos.System.Configuration.NacosConfigurationSection.EndPoint">
+            <summary>
+            EndPoint
+            </summary>
+        </member>
+        <member name="P:Nacos.System.Configuration.NacosConfigurationSection.DefaultTimeOut">
+            <summary>
+            default timeout, unit is Milliseconds.
+            </summary>
+        </member>
+        <member name="P:Nacos.System.Configuration.NacosConfigurationSection.AccessKey">
+            <summary>
+            accessKey
+            </summary>
+        </member>
+        <member name="P:Nacos.System.Configuration.NacosConfigurationSection.SecretKey">
+            <summary>
+            secretKey
+            </summary>
+        </member>
+        <member name="P:Nacos.System.Configuration.NacosConfigurationSection.UseGrpc">
+            <summary>
+            useGrpc
+            </summary>
+        </member>
+        <member name="P:Nacos.System.Configuration.NacosConfigurationSection.UserName">
+            <summary>
+            username
+            </summary>
+        </member>
+        <member name="P:Nacos.System.Configuration.NacosConfigurationSection.Password">
+            <summary>
+            password
+            </summary>
+        </member>
+    </members>
+</doc>

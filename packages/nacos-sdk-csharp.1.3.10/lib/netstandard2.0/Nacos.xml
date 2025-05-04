@@ -1,0 +1,1533 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Nacos</name>
+    </assembly>
+    <members>
+        <member name="M:Nacos.OpenApi.INacosOpenApi.GetNamespacesAsync">
+            <summary>
+            Get namespace list.
+            </summary>
+            <returns>namespace list</returns>
+        </member>
+        <member name="M:Nacos.OpenApi.INacosOpenApi.CreateNamespaceAsync(System.String,System.String,System.String)">
+            <summary>
+            Create namespace
+            </summary>
+            <param name="customNamespaceId">ID of namespace</param>
+            <param name="namespaceName">Name of namespace</param>
+            <param name="namespaceDesc">Description of namespace</param>
+            <returns>Created or not</returns>
+        </member>
+        <member name="M:Nacos.OpenApi.INacosOpenApi.UpdateNamespaceAsync(System.String,System.String,System.String)">
+            <summary>
+            Update namespace
+            </summary>
+            <param name="namespaceId">ID of namespace</param>
+            <param name="namespaceName">Name of namespace</param>
+            <param name="namespaceDesc">Description of namespace</param>
+            <returns>Updated or not</returns>
+        </member>
+        <member name="M:Nacos.OpenApi.INacosOpenApi.DeleteNamespaceAsync(System.String)">
+            <summary>
+            Delete namespace
+            </summary>
+            <param name="namespaceId">ID of namespace</param>
+            <returns>Deleted or not</returns>
+        </member>
+        <member name="M:Nacos.OpenApi.INacosOpenApi.GetMetricsAsync(System.Boolean)">
+            <summary>
+            Query system metrics
+            </summary>
+            <param name="onlyStatus">only status info or not</param>
+            <returns>system metrics</returns>
+        </member>
+        <member name="F:Nacos.V2.Common.Constants.ASYNC_UPDATE_ADDRESS_INTERVAL">
+            <summary>
+            second
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Common.Constants.POLLING_INTERVAL_TIME">
+            <summary>
+            second
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Common.Constants.ONCE_TIMEOUT">
+            <summary>
+            millisecond
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Common.Constants.SO_TIMEOUT">
+            <summary>
+            millisecond.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Common.Constants.CONFIG_LONG_POLL_TIMEOUT">
+            <summary>
+            millisecond.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Common.Constants.MIN_CONFIG_LONG_POLL_TIMEOUT">
+            <summary>
+            millisecond.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Common.Constants.CONFIG_RETRY_TIME">
+            <summary>
+            millisecond
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Common.Constants.MAX_RETRY">
+            <summary>
+            Maximum number of retries.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Common.Constants.RECV_WAIT_TIMEOUT">
+            <summary>
+            millisecond
+            </summary>
+        </member>
+        <member name="M:Nacos.V2.Config.Abst.IConfigContext.GetParameter(System.String)">
+            <summary>
+            Get context param by key.
+            </summary>
+            <param name="key">parameter key</param>
+            <returns>context</returns>
+        </member>
+        <member name="M:Nacos.V2.Config.Abst.IConfigContext.SetParameter(System.String,System.Object)">
+            <summary>
+            Set context param.
+            </summary>
+            <param name="key">key</param>
+            <param name="value">value</param>
+        </member>
+        <member name="M:Nacos.V2.Config.Abst.IConfigFilterChain.DoFilter(Nacos.V2.Config.Abst.IConfigRequest,Nacos.V2.Config.Abst.IConfigResponse)">
+            <summary>
+            Filter action.
+            </summary>
+            <param name="request">request</param>
+            <param name="response">response</param>
+        </member>
+        <member name="M:Nacos.V2.Config.Abst.IConfigTransportClient.GetName">
+            <summary>
+            get name
+            </summary>
+        </member>
+        <member name="M:Nacos.V2.Config.Abst.IConfigTransportClient.GetNamespace">
+            <summary>
+            get namespace
+            </summary>
+            <returns>Namespace</returns>
+        </member>
+        <member name="M:Nacos.V2.Config.Abst.IConfigTransportClient.GetTenant">
+            <summary>
+            get tenant
+            </summary>
+            <returns>Tenant</returns>
+        </member>
+        <member name="M:Nacos.V2.Config.GroupKey.UrlEncode(System.String,System.Text.StringBuilder)">
+            <summary>
+            + -> %2B % -> %25.
+            </summary>
+            <param name="str">str</param>
+            <param name="sb">StringBuilder</param>
+        </member>
+        <member name="M:Nacos.V2.Config.Impl.FileLocalConfigInfoProcessor.GetEncryptDataKeyFailover(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取容灾配置的 EncryptedDataKey。NULL表示没有本地文件或抛出异常.
+            </summary>
+            <param name="envName">envName</param>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+            <param name="tenant">tenant</param>
+            <returns>EncryptedDataKey</returns>
+        </member>
+        <member name="M:Nacos.V2.Config.Impl.FileLocalConfigInfoProcessor.SaveEncryptDataKeySnapshot(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            保存 encryptDataKey 的snapshot。如果内容为NULL，则删除snapshot.
+            </summary>
+            <param name="envName">envName</param>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+            <param name="tenant">tenant</param>
+            <param name="encryptDataKey">encryptDataKey</param>
+            <returns>Task</returns>
+        </member>
+        <member name="M:Nacos.V2.Config.Impl.FileLocalConfigInfoProcessor.GetEncryptDataKeySnapshot(System.String,System.String,System.String,System.String)">
+            <summary>
+            获取本地缓存文件的 EncryptedDataKey。NULL表示没有本地文件或抛出异常.
+            </summary>
+            <param name="envName">envName</param>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+            <param name="tenant">tenant</param>
+            <returns>EncryptedDataKey</returns>
+        </member>
+        <member name="M:Nacos.V2.Config.Utils.ContentUtils.VerifyIncrementPubContent(System.String)">
+            <summary>
+            Verify increment pub content.
+            </summary>
+            <param name="content">content</param>
+        </member>
+        <member name="M:Nacos.V2.Config.Utils.ContentUtils.TruncateContent(System.String)">
+            <summary>
+            Truncate content.
+            </summary>
+            <param name="content">content</param>
+            <returns>truncated content</returns>
+        </member>
+        <member name="M:Nacos.V2.Config.Utils.ParamUtils.IsValid(System.String)">
+            <summary>
+            Check the whitelist method, the legal parameters can only contain letters, numbers, and characters in validChars, and cannot be empty.
+            </summary>
+            <param name="param">parameter</param>
+            <returns>true if valid</returns>
+        </member>
+        <member name="M:Nacos.V2.Config.Utils.ParamUtils.CheckTdg(System.String,System.String,System.String)">
+            <summary>
+            Check Tenant, dataId and group.
+            </summary>
+            <param name="tenant">tenant</param>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+        </member>
+        <member name="M:Nacos.V2.Config.Utils.ParamUtils.CheckKeyParam(System.String,System.String)">
+            <summary>
+            Check key param.
+            </summary>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+        </member>
+        <member name="M:Nacos.V2.Config.Utils.ParamUtils.CheckKeyParam(System.String,System.String,System.String)">
+            <summary>
+            Check key param.
+            </summary>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+            <param name="datumId">datumId</param>
+        </member>
+        <member name="M:Nacos.V2.Config.Utils.ParamUtils.CheckKeyParam(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Check key param.
+            </summary>
+            <param name="dataIds">dataIds</param>
+            <param name="group">group</param>
+        </member>
+        <member name="M:Nacos.V2.Config.Utils.ParamUtils.CheckParam(System.String,System.String,System.String)">
+            <summary>
+            Check parameter.
+            </summary>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+            <param name="content">content</param>
+        </member>
+        <member name="M:Nacos.V2.Config.Utils.ParamUtils.CheckParam(System.String,System.String,System.String,System.String)">
+            <summary>
+            Check parameter.
+            </summary>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+            <param name="datumId">datumId</param>
+            <param name="content">content</param>
+        </member>
+        <member name="M:Nacos.V2.Config.Utils.ParamUtils.CheckTenant(System.String)">
+            <summary>
+            Check Tenant.
+            </summary>
+            <param name="tenant">tenant</param>
+        </member>
+        <member name="M:Nacos.V2.Config.Utils.ParamUtils.CheckBetaIps(System.String)">
+            <summary>
+             Check beta ips.
+            </summary>
+            <param name="betaIps">beta ips</param>
+        </member>
+        <member name="M:Nacos.V2.Config.Utils.ParamUtils.CheckContent(System.String)">
+            <summary>
+            Check content.
+            </summary>
+            <param name="content">content</param>
+        </member>
+        <member name="F:Nacos.V2.Exceptions.NacosException.CLIENT_INVALID_PARAM">
+            <summary>
+            invalid param（参数错误）.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Exceptions.NacosException.CLIENT_DISCONNECT">
+            <summary>
+            client disconnect.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Exceptions.NacosException.CLIENT_OVER_THRESHOLD">
+            <summary>
+            over client threshold（超过server端的限流阈值）.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Exceptions.NacosException.INVALID_PARAM">
+            <summary>
+            invalid param（参数错误）.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Exceptions.NacosException.NO_RIGHT">
+            <summary>
+            no right（鉴权失败）.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Exceptions.NacosException.NOT_FOUND">
+            <summary>
+            not found.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Exceptions.NacosException.CONFLICT">
+            <summary>
+            conflict（写并发冲突）.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Exceptions.NacosException.SERVER_ERROR">
+            <summary>
+            server error（server异常，如超时）.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Exceptions.NacosException.BAD_GATEWAY">
+            <summary>
+             bad gateway（路由异常，如nginx后面的Server挂掉）.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Exceptions.NacosException.OVER_THRESHOLD">
+            <summary>
+            over threshold（超过server端的限流阈值）.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Exceptions.NacosException.INVALID_SERVER_STATUS">
+            <summary>
+            Server is not started.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Exceptions.NacosException.UN_REGISTER">
+            <summary>
+            Connection is not registered.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Exceptions.NacosException.NO_HANDLER">
+            <summary>
+            No Handler Found.
+            </summary>
+        </member>
+        <member name="M:Nacos.V2.INacosConfigService.GetConfig(System.String,System.String,System.Int64)">
+            <summary>
+            Get config.
+            </summary>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+            <param name="timeoutMs">read timeout</param>
+            <returns>config value</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosConfigService.GetConfigAndSignListener(System.String,System.String,System.Int64,Nacos.V2.IListener)">
+            <summary>
+            Get config and register Listener.
+            If you want to pull it yourself when the program starts to get the configuration for the first time, and the
+            registered Listener is used for future configuration updates, you can keep the original code unchanged, just add
+            the system parameter: enableRemoteSyncConfig = "true" ( But there is network overhead); therefore we recommend
+            that you use this interface directly
+            </summary>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+            <param name="timeoutMs">read timeout</param>
+            <param name="listener">Listener</param>
+            <returns>config value</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosConfigService.AddListener(System.String,System.String,Nacos.V2.IListener)">
+            <summary>
+            Add a listener to the configuration, after the server modified the configuration, the client will use the
+            incoming listener callback. Recommended asynchronous processing, the application can implement the getExecutor
+            method in the ManagerListener, provide a thread pool of execution. If provided, use the main thread callback, May
+            block other configurations or be blocked by other configurations.
+            </summary>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+            <param name="listener">Listener</param>
+        </member>
+        <member name="M:Nacos.V2.INacosConfigService.PublishConfig(System.String,System.String,System.String)">
+            <summary>
+            Publish config.
+            </summary>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+            <param name="content">content</param>
+            <returns>Whether publish</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosConfigService.PublishConfig(System.String,System.String,System.String,System.String)">
+            <summary>
+            Publish config.
+            </summary>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+            <param name="content">content</param>
+            <param name="type">config type</param>
+            <returns>Whether publish</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosConfigService.PublishConfigCas(System.String,System.String,System.String,System.String)">
+            <summary>
+            Publish config.
+            </summary>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+            <param name="content">content</param>
+            <param name="casMd5">casMd5 prev content's md5 to cas</param>
+            <returns>Whether publish</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosConfigService.PublishConfigCas(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Publish config.
+            </summary>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+            <param name="content">content</param>
+            <param name="casMd5">casMd5 prev content's md5 to cas</param>
+            <param name="type">config type</param>
+            <returns>Whether publish</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosConfigService.RemoveConfig(System.String,System.String)">
+            <summary>
+            Remove config.
+            </summary>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+            <returns>whether remove</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosConfigService.RemoveListener(System.String,System.String,Nacos.V2.IListener)">
+            <summary>
+            Remove listener.
+            </summary>
+            <param name="dataId">dataId</param>
+            <param name="group">group</param>
+            <param name="listener">listener</param>
+        </member>
+        <member name="M:Nacos.V2.INacosConfigService.GetServerStatus">
+            <summary>
+            Get server status.
+            </summary>
+            <returns>whether health</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosConfigService.ShutDown">
+            <summary>
+            Shutdown the resource service.
+            </summary>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.RegisterInstance(System.String,System.String,System.Int32)">
+            <summary>
+            register a instance to service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="ip"> instance ip</param>
+            <param name="port">instance port</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.RegisterInstance(System.String,System.String,System.String,System.Int32)">
+            <summary>
+            register a instance to service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="ip"> instance ip</param>
+            <param name="port">instance port</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.RegisterInstance(System.String,System.String,System.Int32,System.String)">
+            <summary>
+            register a instance to service with specified cluster name.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="ip"> instance ip</param>
+            <param name="port">instance port</param>
+            <param name="clusterName">instance cluster name</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.RegisterInstance(System.String,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            register a instance to service with specified cluster name.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="ip"> instance ip</param>
+            <param name="port">instance port</param>
+            <param name="clusterName">instance cluster name</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.RegisterInstance(System.String,Nacos.V2.Naming.Dtos.Instance)">
+            <summary>
+            register a instance to service with specified instance properties.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="instance">instance to register</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.RegisterInstance(System.String,System.String,Nacos.V2.Naming.Dtos.Instance)">
+            <summary>
+            register a instance to service with specified instance properties.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="instance">instance to register</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.BatchRegisterInstance(System.String,System.String,System.Collections.Generic.List{Nacos.V2.Naming.Dtos.Instance})">
+            <summary>
+            batch register instance to service with specified instance properties.
+            since nacos server 2.1.1
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="instances">instances to register</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.DeregisterInstance(System.String,System.String,System.Int32)">
+            <summary>
+            deregister instance from a service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="ip">instance ip</param>
+            <param name="port"> instance port</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.DeregisterInstance(System.String,System.String,System.String,System.Int32)">
+            <summary>
+            deregister instance from a service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="ip"> instance ip</param>
+            <param name="port">instance port</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.DeregisterInstance(System.String,System.String,System.Int32,System.String)">
+            <summary>
+            deregister instance with specified cluster name from a service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="ip"> instance ip</param>
+            <param name="port">instance port</param>
+            <param name="clusterName">instance cluster name</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.DeregisterInstance(System.String,System.String,System.String,System.Int32,System.String)">
+            <summary>
+            deregister instance with specified cluster name from a service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="ip"> instance ip</param>
+            <param name="port">instance port</param>
+            <param name="clusterName">instance cluster name</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.DeregisterInstance(System.String,Nacos.V2.Naming.Dtos.Instance)">
+            <summary>
+            deregister instance with full instance information and default groupName.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="instance">instance to register</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.DeregisterInstance(System.String,System.String,Nacos.V2.Naming.Dtos.Instance)">
+            <summary>
+            deregister instance with full instance information.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="instance">instance to register</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.GetAllInstances(System.String)">
+            <summary>
+            get all instances of a service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <returns> A list of instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.GetAllInstances(System.String,System.String)">
+            <summary>
+            get all instances of a service.
+            </summary>
+            <param name="serviceName"> name of service</param>
+            <param name="groupName">group of service</param>
+            <returns> A list of instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.GetAllInstances(System.String,System.Boolean)">
+            <summary>
+            Get all instances of a service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="subscribe">if subscribe the service</param>
+            <returns>A list of instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.GetAllInstances(System.String,System.String,System.Boolean)">
+            <summary>
+            Get all instances of a service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="subscribe">if subscribe the service</param>
+            <returns>A list of instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.GetAllInstances(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Get all instances within specified clusters of a service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="clusters">list of cluster</param>
+            <returns>A list of qualified instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.GetAllInstances(System.String,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+             Get all instances within specified clusters of a service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="clusters">list of cluster</param>
+            <returns>A list of qualified instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.GetAllInstances(System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Get all instances within specified clusters of a service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="clusters">list of cluster</param>
+            <param name="subscribe">if subscribe the service</param>
+            <returns>A list of qualified instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.GetAllInstances(System.String,System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Get all instances within specified clusters of a service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="clusters">list of cluster</param>
+            <param name="subscribe">if subscribe the service</param>
+            <returns>A list of qualified instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.SelectInstances(System.String,System.Boolean)">
+            <summary>
+            Get qualified instances of service.
+            </summary>
+            <param name="serviceName">name of service.</param>
+            <param name="healthy">a flag to indicate returning healthy or unhealthy instances</param>
+            <returns> A qualified list of instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.SelectInstances(System.String,System.String,System.Boolean)">
+            <summary>
+            Get qualified instances of service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="healthy">a flag to indicate returning healthy or unhealthy instances</param>
+            <returns>A qualified list of instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.SelectInstances(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Get qualified instances of service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="healthy">a flag to indicate returning healthy or unhealthy instances</param>
+            <param name="subscribe">if subscribe the service</param>
+            <returns>A qualified list of instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.SelectInstances(System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Get qualified instances of service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="healthy">a flag to indicate returning healthy or unhealthy instances</param>
+            <param name="subscribe">if subscribe the service</param>
+            <returns>A qualified list of instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.SelectInstances(System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Get qualified instances within specified clusters of service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="clusters">list of cluster</param>
+            <param name="healthy">a flag to indicate returning healthy or unhealthy instances</param>
+            <returns>A qualified list of instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.SelectInstances(System.String,System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Get qualified instances within specified clusters of service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="clusters">list of cluster</param>
+            <param name="healthy">a flag to indicate returning healthy or unhealthy instances</param>
+            <returns>A qualified list of instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.SelectInstances(System.String,System.Collections.Generic.List{System.String},System.Boolean,System.Boolean)">
+            <summary>
+            Get qualified instances within specified clusters of service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="clusters">list of cluster</param>
+            <param name="healthy">a flag to indicate returning healthy or unhealthy instances</param>
+            <param name="subscribe">if subscribe the service</param>
+            <returns>A qualified list of instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.SelectInstances(System.String,System.String,System.Collections.Generic.List{System.String},System.Boolean,System.Boolean)">
+            <summary>
+            Get qualified instances within specified clusters of service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="clusters">list of cluster</param>
+            <param name="healthy">a flag to indicate returning healthy or unhealthy instances</param>
+            <param name="subscribe">if subscribe the service</param>
+            <returns>A qualified list of instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.SelectOneHealthyInstance(System.String)">
+            <summary>
+            Select one healthy instance of service using predefined load balance strategy.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <returns>qualified instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.SelectOneHealthyInstance(System.String,System.String)">
+            <summary>
+            Select one healthy instance of service using predefined load balance strategy.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <returns>qualified instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.SelectOneHealthyInstance(System.String,System.Boolean)">
+            <summary>
+            Select one healthy instance of service using predefined load balance strategy.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="subscribe">if subscribe the service</param>
+            <returns>qualified instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.SelectOneHealthyInstance(System.String,System.String,System.Boolean)">
+            <summary>
+            Select one healthy instance of service using predefined load balance strategy.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="subscribe">if subscribe the service</param>
+            <returns>qualified instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.SelectOneHealthyInstance(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Select one healthy instance of service using predefined load balance strategy.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="clusters">list of cluster</param>
+            <returns>qualified instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.SelectOneHealthyInstance(System.String,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Select one healthy instance of service using predefined load balance strategy.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="clusters">list of cluster</param>
+            <returns>qualified instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.SelectOneHealthyInstance(System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Select one healthy instance of service using predefined load balance strategy.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="clusters">list of cluster</param>
+            <param name="subscribe">if subscribe the service</param>
+            <returns>qualified instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.SelectOneHealthyInstance(System.String,System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            Select one healthy instance of service using predefined load balance strategy.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="clusters">list of cluster</param>
+            <param name="subscribe">if subscribe the service</param>
+            <returns>qualified instance</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.Subscribe(System.String,Nacos.V2.IEventListener)">
+            <summary>
+            Subscribe service to receive events of instances alteration.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="listener">event listener</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.Subscribe(System.String,System.String,Nacos.V2.IEventListener)">
+            <summary>
+            Subscribe service to receive events of instances alteration.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="listener">event listener</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.Subscribe(System.String,System.Collections.Generic.List{System.String},Nacos.V2.IEventListener)">
+            <summary>
+            Subscribe service to receive events of instances alteration.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="clusters">list of cluster</param>
+            <param name="listener">event listener</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.Subscribe(System.String,System.String,System.Collections.Generic.List{System.String},Nacos.V2.IEventListener)">
+            <summary>
+            Subscribe service to receive events of instances alteration.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="clusters">list of cluster</param>
+            <param name="listener">event listener</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.Unsubscribe(System.String,Nacos.V2.IEventListener)">
+            <summary>
+            Unsubscribe event listener of service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="listener">event listener</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.Unsubscribe(System.String,System.String,Nacos.V2.IEventListener)">
+            <summary>
+            Unsubscribe event listener of service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="listener">event listener</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.Unsubscribe(System.String,System.Collections.Generic.List{System.String},Nacos.V2.IEventListener)">
+            <summary>
+            Unsubscribe event listener of service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="clusters">list of cluster</param>
+            <param name="listener">event listener</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.Unsubscribe(System.String,System.String,System.Collections.Generic.List{System.String},Nacos.V2.IEventListener)">
+            <summary>
+            Unsubscribe event listener of service.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="clusters">list of cluster</param>
+            <param name="listener">event listener</param>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.GetServicesOfServer(System.Int32,System.Int32)">
+            <summary>
+            Get all service names from server.
+            </summary>
+            <param name="pageNo">page index</param>
+            <param name="pageSize">page size</param>
+            <returns>list of service names</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.GetServicesOfServer(System.Int32,System.Int32,System.String)">
+            <summary>
+            Get all service names from server.
+            </summary>
+            <param name="pageNo">page index</param>
+            <param name="pageSize">page size</param>
+            <param name="groupName">group name</param>
+            <returns>list of service names</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.GetServicesOfServer(System.Int32,System.Int32,Nacos.V2.Naming.Dtos.AbstractSelector)">
+            <summary>
+            Get all service names from server.
+            </summary>
+            <param name="pageNo">page index</param>
+            <param name="pageSize">page size</param>
+            <param name="selector">selector to filter the resource</param>
+            <returns>list of service names</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.GetServicesOfServer(System.Int32,System.Int32,System.String,Nacos.V2.Naming.Dtos.AbstractSelector)">
+            <summary>
+            Get all service names from server.
+            </summary>
+            <param name="pageNo">page index</param>
+            <param name="pageSize">page size</param>
+            <param name="groupName">group name</param>
+            <param name="selector">selector to filter the resource</param>
+            <returns>list of service names</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.GetSubscribeServices">
+            <summary>
+            Get all subscribed services of current client.
+            </summary>
+            <returns>subscribed services</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.GetServerStatus">
+            <summary>
+            get server health status.
+            </summary>
+            <returns>is server healthy</returns>
+        </member>
+        <member name="M:Nacos.V2.INacosNamingService.ShutDown">
+            <summary>
+            Shutdown the resource service.
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.NacosSdkOptions.ServerAddresses">
+            <summary>
+            nacos server addresses.
+            </summary>
+            <example>
+            http://10.1.12.123:8848,https://10.1.12.124:8848
+            </example>
+        </member>
+        <member name="P:Nacos.V2.NacosSdkOptions.EndPoint">
+            <summary>
+            EndPoint
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.NacosSdkOptions.DefaultTimeOut">
+            <summary>
+            default timeout, unit is Milliseconds.
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.NacosSdkOptions.Namespace">
+            <summary>
+            default namespace
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.NacosSdkOptions.AccessKey">
+            <summary>
+            accessKey
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.NacosSdkOptions.SecretKey">
+            <summary>
+            secretKey
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.NacosSdkOptions.ListenInterval">
+            <summary>
+            listen interval, unit is millisecond.
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.NacosSdkOptions.NamingPushEmptyProtection">
+            <summary>
+            Whether enable protecting naming push empty data, default is false.
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.NacosSdkOptions.ConfigFilterAssemblies">
+            <summary>
+            Specify the assemblies that contains the impl of IConfigFilter.
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.NacosSdkOptions.ConfigFilterExtInfo">
+            <summary>
+            Specify some extension info of IConfigFilter.
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.NacosSdkOptions.TLSConfig">
+            <summary>
+            TLS config
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Naming.Dtos.Instance.InstanceId">
+            <summary>
+            unique id of this instance.
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Naming.Dtos.Instance.Ip">
+            <summary>
+            instance ip.
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Naming.Dtos.Instance.Port">
+            <summary>
+            instance port.
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Naming.Dtos.Instance.Weight">
+            <summary>
+            instance weight.
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Naming.Dtos.Instance.Healthy">
+            <summary>
+            instance health status.
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Naming.Dtos.Instance.Enabled">
+            <summary>
+            If instance is enabled to accept request.
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Naming.Dtos.Instance.Ephemeral">
+            <summary>
+            If instance is ephemeral.
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Naming.Dtos.Instance.ClusterName">
+            <summary>
+            cluster information of instance.
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Naming.Dtos.Instance.ServiceName">
+            <summary>
+             Service information of instance.
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Naming.Dtos.Instance.Metadata">
+            <summary>
+            user extended attributes.
+            </summary>
+        </member>
+        <member name="M:Nacos.V2.Naming.Remote.Grpc.InstanceRedoData.Build(System.String,System.String,Nacos.V2.Naming.Dtos.Instance)">
+            <summary>
+            Build a new RedoData for register service instance.
+            </summary>
+            <param name="serviceName">service name for redo data</param>
+            <param name="groupName">group name for redo data</param>
+            <param name="instance">instance for redo data</param>
+            <returns>new RedoData for register service instance</returns>
+        </member>
+        <member name="M:Nacos.V2.Naming.Remote.Grpc.NamingGrpcRedoService.CacheInstanceForRedo(System.String,System.String,Nacos.V2.Naming.Dtos.Instance)">
+            <summary>
+            Cache registered instance for redo.
+            </summary>
+            <param name="serviceName">service name</param>
+            <param name="groupName">group name</param>
+            <param name="instance">registered instance</param>
+        </member>
+        <member name="M:Nacos.V2.Naming.Remote.Grpc.NamingGrpcRedoService.InstanceRegistered(System.String,System.String)">
+            <summary>
+            Instance register successfully, mark registered status as true
+            </summary>
+            <param name="serviceName">service name</param>
+            <param name="groupName">group name</param>
+        </member>
+        <member name="M:Nacos.V2.Naming.Remote.Grpc.NamingGrpcRedoService.InstanceDeregister(System.String,System.String)">
+            <summary>
+            Instance deregister, mark unregistering status as true.
+            </summary>
+            <param name="serviceName">service name</param>
+            <param name="groupName">group name</param>
+        </member>
+        <member name="M:Nacos.V2.Naming.Remote.Grpc.NamingGrpcRedoService.IsSubscriberRegistered(System.String,System.String,System.String)">
+            <summary>
+            Judge subscriber has registered to server.
+            </summary>
+            <param name="serviceName">service name</param>
+            <param name="groupName">group name</param>
+            <param name="cluster">cluster</param>
+            <returns>true if subscribed, otherwise false</returns>
+        </member>
+        <member name="M:Nacos.V2.Naming.Remote.Grpc.NamingGrpcRedoService.RemoveInstanceForRedo(System.String,System.String)">
+            <summary>
+            Remove registered instance for redo.
+            </summary>
+            <param name="serviceName">service name</param>
+            <param name="groupName">group name</param>
+        </member>
+        <member name="M:Nacos.V2.Naming.Remote.Grpc.NamingGrpcRedoService.FindInstanceRedoData">
+            <summary>
+            Find all instance redo data which need do redo.
+            </summary>
+            <returns>set of InstanceRedoData need to do redo.</returns>
+        </member>
+        <member name="M:Nacos.V2.Naming.Remote.Grpc.NamingGrpcRedoService.CacheSubscriberForRedo(System.String,System.String,System.String)">
+            <summary>
+            Cache subscriber for redo.
+            </summary>
+            <param name="serviceName">service name</param>
+            <param name="groupName">group name</param>
+            <param name="cluster">cluster</param>
+        </member>
+        <member name="M:Nacos.V2.Naming.Remote.Grpc.NamingGrpcRedoService.SubscriberRegistered(System.String,System.String,System.String)">
+            <summary>
+            Subscriber register successfully, mark registered status as true.
+            </summary>
+            <param name="serviceName">service name</param>
+            <param name="groupName">group name</param>
+            <param name="cluster">cluster</param>
+        </member>
+        <member name="M:Nacos.V2.Naming.Remote.Grpc.NamingGrpcRedoService.SubscriberDeregister(System.String,System.String,System.String)">
+            <summary>
+            Subscriber deregister, mark unregistering status as true.
+            </summary>
+            <param name="serviceName">service name</param>
+            <param name="groupName">group name</param>
+            <param name="cluster">cluster</param>
+        </member>
+        <member name="M:Nacos.V2.Naming.Remote.Grpc.NamingGrpcRedoService.RemoveSubscriberForRedo(System.String,System.String,System.String)">
+            <summary>
+            Remove subscriber for redo.
+            </summary>
+            <param name="serviceName">service name</param>
+            <param name="groupName">group name</param>
+            <param name="cluster">cluster</param>
+        </member>
+        <member name="M:Nacos.V2.Naming.Remote.Grpc.NamingGrpcRedoService.FindSubscriberRedoData">
+            <summary>
+            Find all subscriber redo data which need do redo.
+            </summary>
+            <returns>set of SubscriberRedoData need to do redo.</returns>
+        </member>
+        <member name="F:Nacos.V2.Naming.Remote.Grpc.RedoType.REGISTER">
+            <summary>
+            Redo register.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Naming.Remote.Grpc.RedoType.UNREGISTER">
+            <summary>
+            Redo unregister.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Naming.Remote.Grpc.RedoType.NONE">
+            <summary>
+            Redo nothing.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Naming.Remote.Grpc.RedoType.REMOVE">
+            <summary>
+            Remove redo data.
+            </summary>
+        </member>
+        <member name="M:Nacos.V2.Naming.Remote.Grpc.SubscriberRedoData.Build(System.String,System.String,System.String)">
+            <summary>
+            Build a new RedoData for subscribers.
+            </summary>
+            <param name="serviceName">service name for redo data</param>
+            <param name="groupName">group name for redo data</param>
+            <param name="clusters">clusters for redo data</param>
+            <returns>new RedoData for subscribers</returns>
+        </member>
+        <member name="M:Nacos.V2.Naming.Remote.INamingClientProxy.RegisterServiceAsync(System.String,System.String,Nacos.V2.Naming.Dtos.Instance)">
+            <summary>
+            Register a instance to service with specified instance properties.
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="instance">instance to register</param>
+        </member>
+        <member name="M:Nacos.V2.Naming.Remote.INamingClientProxy.BatchRegisterServiceAsync(System.String,System.String,System.Collections.Generic.List{Nacos.V2.Naming.Dtos.Instance})">
+            <summary>
+            batch register instance to service with specified instance properties.
+            since nacos server 2.1.1
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">group of service</param>
+            <param name="instances">instances to register</param>
+        </member>
+        <member name="M:Nacos.V2.Naming.Utils.NamingUtils.GetGroupedName(System.String,System.String)">
+            <summary>
+            Returns a combined string with serviceName and groupName. serviceName can not be nil.
+            In most cases, serviceName can not be nil. In other cases, for search or anything, See {@link * com.alibaba.nacos.api.naming.utils.NamingUtils#getGroupedNameOptional(String, String)}
+            etc:
+            serviceName | groupName | result
+            serviceA    | groupA    | groupA@@serviceA
+            nil         | groupA    | threw ArgumentException
+            </summary>
+            <param name="serviceName">name of service</param>
+            <param name="groupName">name of group</param>
+            <returns>groupName@@serviceName</returns>
+        </member>
+        <member name="M:Nacos.V2.Naming.Utils.NamingUtils.CheckServiceNameFormat(System.String)">
+            <summary>
+            check combineServiceName format. the serviceName can't be blank.
+            <pre>
+            serviceName = "@@"; the length = 0; illegal
+            serviceName = "group@@"; the length = 1; illegal
+            serviceName = "@@serviceName"; the length = 2; legal
+            serviceName = "group@@serviceName"; the length = 2; legal
+            </pre>
+            </summary>
+            <param name="combineServiceName">such as: groupName@@serviceName</param>
+        </member>
+        <member name="M:Nacos.V2.Naming.Utils.NamingUtils.GetGroupedNameOptional(System.String,System.String)">
+            <summary>
+            Returns a combined string with serviceName and groupName. Such as 'groupName@@serviceName'
+            This method works similar with {@link com.alibaba.nacos.api.naming.utils.NamingUtils#getGroupedName} But not verify any parameters.
+            etc:
+            serviceName | groupName | result
+            serviceA    | groupA    | groupA@@serviceA
+            nil         | groupA    | groupA@@
+            nil         | nil       | @@
+            </summary>
+            <param name="serviceName">serviceName</param>
+            <param name="groupName">groupName</param>
+            <returns>groupName@@serviceName</returns>
+        </member>
+        <member name="M:Nacos.V2.Naming.Utils.NamingUtils.BatchCheckInstanceIsLegal(System.Collections.Generic.List{Nacos.V2.Naming.Dtos.Instance})">
+            <summary>
+            Batch verify the validity of instances.
+            </summary>
+            <param name="instances">List of instances to be registered</param>
+        </member>
+        <member name="M:Nacos.V2.Naming.Utils.NamingUtils.CheckInstanceIsEphemeral(Nacos.V2.Naming.Dtos.Instance)">
+            <summary>
+            check batch register is Ephemeral.
+            </summary>
+            <param name="instance">instance</param>
+            <exception cref="T:Nacos.V2.Exceptions.NacosException"></exception>
+        </member>
+        <member name="M:Nacos.V2.Naming.Utils.NamingUtils.CheckInstanceIsLegal(Nacos.V2.Naming.Dtos.Instance)">
+            <summary>
+            Check instance param about keep alive.
+            heart beat timeout must > heart beat interval
+            ip delete timeout must  > heart beat interval
+            </summary>
+            <param name="instance">need checked instance</param>
+            <exception cref="T:Nacos.V2.Exceptions.NacosException"></exception>
+        </member>
+        <member name="F:Nacos.V2.Remote.RemoteConnectionType.GRPC">
+            <summary>
+            GRPC
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Remote.RemoteConnectionType.RSOCKET">
+            <summary>
+            RSOCKET
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Remote.RemoteConnectionType.TB_REMOTEING">
+            <summary>
+            TB_REMOTEING
+            </summary>
+        </member>
+        <member name="T:Nacos.V2.Remote.RemoteRequestType">
+            <summary>
+            nacos 2.0.0.alpha1 fullname
+            nacos 2.0.0.alpha2 fullname
+            after nacos 2.0.0.alpha2 simplename
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigChangeNotifyRequest.Tenant">
+            <summary>
+            The tenant, corresponding to the namespace field of Nacos
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigChangeNotifyRequest.DataId">
+            <summary>
+            Configuration ID
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigChangeNotifyRequest.Group">
+            <summary>
+            Configuration group
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigPublishRequest.Tenant">
+            <summary>
+            The tenant, corresponding to the namespace field of Nacos
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigPublishRequest.DataId">
+            <summary>
+            Configuration ID
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigPublishRequest.Group">
+            <summary>
+            Configuration group
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigPublishRequest.Content">
+            <summary>
+            Configuration content
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigQueryRequest.Tenant">
+            <summary>
+            The tenant, corresponding to the namespace field of Nacos
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigQueryRequest.DataId">
+            <summary>
+            Configuration ID
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigQueryRequest.Group">
+            <summary>
+            Configuration group
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigRemoveRequest.Tenant">
+            <summary>
+            The tenant, corresponding to the namespace field of Nacos
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigRemoveRequest.DataId">
+            <summary>
+            Configuration ID
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigRemoveRequest.Group">
+            <summary>
+            Configuration group
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigRemoveRequest.Tag">
+            <summary>
+            Configuration content
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigReSyncRequest.Tenant">
+            <summary>
+            The tenant, corresponding to the namespace field of Nacos
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigReSyncRequest.DataId">
+            <summary>
+            Configuration ID
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.Remote.Requests.ConfigReSyncRequest.Group">
+            <summary>
+            Configuration group
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Remote.RpcClient.connectionEventListeners">
+            <summary>
+            listener called where connect status changed.
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Remote.RpcClient.serverRequestHandlers">
+            <summary>
+            change listeners handler registry.
+            </summary>
+        </member>
+        <member name="M:Nacos.V2.Remote.RpcClient.NotifyDisConnected">
+            <summary>
+            Notify when client re connected.
+            </summary>
+        </member>
+        <member name="M:Nacos.V2.Remote.RpcClient.NotifyConnected">
+            <summary>
+            Notify when client new connected.
+            </summary>
+        </member>
+        <member name="M:Nacos.V2.Remote.RpcClient.OnServerListChange">
+            <summary>
+            check if current connected server is in serverlist ,if not switch server.
+            </summary>
+        </member>
+        <member name="M:Nacos.V2.Remote.RpcClient.IsWaitInited">
+            <summary>
+            check is this client is inited.
+            </summary>
+        </member>
+        <member name="M:Nacos.V2.Remote.RpcClient.IsRunning">
+            <summary>
+            check is this client is running.
+            </summary>
+        </member>
+        <member name="M:Nacos.V2.Remote.RpcClient.IsShutdwon">
+            <summary>
+            check is this client is shutdwon.
+            </summary>
+        </member>
+        <member name="M:Nacos.V2.Remote.RpcClient.RegisterConnectionListener(Nacos.V2.Remote.IConnectionEventListener)">
+            <summary>
+            register connection handler.will be notified when inner connect changed.
+            </summary>
+            <param name="connectionEventListener">connectionEventListener</param>
+        </member>
+        <member name="M:Nacos.V2.Remote.RpcClient.RegisterServerPushResponseHandler(Nacos.V2.Remote.IServerRequestHandler)">
+            <summary>
+            register change listeners ,will be called when server send change notify response th current client.
+            </summary>
+            <param name="serverRequestHandler">serverRequestHandler</param>
+        </member>
+        <member name="F:Nacos.V2.Remote.RpcClientStatus.WAIT_INIT">
+            <summary>
+            wait to  init serverlist factory...
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Remote.RpcClientStatus.INITIALIZED">
+            <summary>
+            server list factory is ready,wait to start
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Remote.RpcClientStatus.STARTING">
+            <summary>
+            server list factory is ready,wait to start
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Remote.RpcClientStatus.RUNNING">
+            <summary>
+            client is running...
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Remote.RpcClientStatus.UNHEALTHY">
+            <summary>
+            client unhealthy,may closed by server,in rereconnecting
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Remote.RpcClientStatus.SHUTDOWN">
+            <summary>
+            client is shutdown...
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Security.SecurityProxy._username">
+            <summary>
+            User's name
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Security.SecurityProxy._password">
+            <summary>
+            User's password
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Security.SecurityProxy._accessToken">
+            <summary>
+            A token to take with when sending request to Nacos server
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Security.SecurityProxy._tokenTtl">
+            <summary>
+            TTL of token in seconds
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Security.SecurityProxy._lastRefreshTime">
+            <summary>
+            Last timestamp refresh security info from server
+            </summary>
+        </member>
+        <member name="F:Nacos.V2.Security.SecurityProxy._tokenRefreshWindow">
+            <summary>
+            time window to refresh security info in seconds
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.TLSConfig.Enabled">
+            <summary>
+            whether enable tls
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.TLSConfig.PfxFile">
+            <summary>
+            pfx file path
+            </summary>
+        </member>
+        <member name="P:Nacos.V2.TLSConfig.Password">
+            <summary>
+            password of pfx
+            </summary>
+        </member>
+        <member name="M:Nacos.V2.Utils.TenantUtil.GetUserTenantForAcm">
+            <summary>
+            Adapt the way ACM gets tenant on the cloud.
+            Note the difference between getting and getting ANS. Since the processing logic on the server side is different,
+            the default value returns differently.
+            </summary>
+            <returns>user tenant for acm</returns>
+        </member>
+        <member name="M:Nacos.V2.Utils.TenantUtil.GetUserTenantForAns">
+            <summary>
+            Adapt the way ANS gets tenant on the cloud.
+            </summary>
+            <returns>user tenant for ans</returns>
+        </member>
+        <member name="T:Nacos.NacosGrpcServiceReflection">
+            <summary>Holder for reflection information generated from V2/protos/nacos_grpc_service.proto</summary>
+        </member>
+        <member name="P:Nacos.NacosGrpcServiceReflection.Descriptor">
+            <summary>File descriptor for V2/protos/nacos_grpc_service.proto</summary>
+        </member>
+        <member name="F:Nacos.Metadata.TypeFieldNumber">
+            <summary>Field number for the "type" field.</summary>
+        </member>
+        <member name="F:Nacos.Metadata.ClientIpFieldNumber">
+            <summary>Field number for the "clientIp" field.</summary>
+        </member>
+        <member name="F:Nacos.Metadata.HeadersFieldNumber">
+            <summary>Field number for the "headers" field.</summary>
+        </member>
+        <member name="F:Nacos.Payload.MetadataFieldNumber">
+            <summary>Field number for the "metadata" field.</summary>
+        </member>
+        <member name="F:Nacos.Payload.BodyFieldNumber">
+            <summary>Field number for the "body" field.</summary>
+        </member>
+        <member name="P:Nacos.Request.Descriptor">
+            <summary>Service descriptor</summary>
+        </member>
+        <member name="T:Nacos.Request.RequestClient">
+            <summary>Client for Request</summary>
+        </member>
+        <member name="M:Nacos.Request.RequestClient.#ctor(Grpc.Core.ChannelBase)">
+            <summary>Creates a new client for Request</summary>
+            <param name="channel">The channel to use to make remote calls.</param>
+        </member>
+        <member name="M:Nacos.Request.RequestClient.#ctor(Grpc.Core.CallInvoker)">
+            <summary>Creates a new client for Request that uses a custom <c>CallInvoker</c>.</summary>
+            <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+        </member>
+        <member name="M:Nacos.Request.RequestClient.#ctor">
+            <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+        </member>
+        <member name="M:Nacos.Request.RequestClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)">
+            <summary>Protected constructor to allow creation of configured clients.</summary>
+            <param name="configuration">The client configuration.</param>
+        </member>
+        <member name="M:Nacos.Request.RequestClient.request(Nacos.Payload,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+            <summary>
+            Sends a commonRequest
+            </summary>
+            <param name="requestData">The request to send to the server.</param>
+            <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+            <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+            <param name="cancellationToken">An optional token for canceling the call.</param>
+            <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:Nacos.Request.RequestClient.request(Nacos.Payload,Grpc.Core.CallOptions)">
+            <summary>
+            Sends a commonRequest
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="options">The options for the call.</param>
+            <returns>The response received from the server.</returns>
+        </member>
+        <member name="M:Nacos.Request.RequestClient.requestAsync(Nacos.Payload,Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+            <summary>
+            Sends a commonRequest
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+            <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+            <param name="cancellationToken">An optional token for canceling the call.</param>
+            <returns>The call object.</returns>
+        </member>
+        <member name="M:Nacos.Request.RequestClient.requestAsync(Nacos.Payload,Grpc.Core.CallOptions)">
+            <summary>
+            Sends a commonRequest
+            </summary>
+            <param name="request">The request to send to the server.</param>
+            <param name="options">The options for the call.</param>
+            <returns>The call object.</returns>
+        </member>
+        <member name="M:Nacos.Request.RequestClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)">
+            <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+        </member>
+        <member name="P:Nacos.BiRequestStream.Descriptor">
+            <summary>Service descriptor</summary>
+        </member>
+        <member name="T:Nacos.BiRequestStream.BiRequestStreamClient">
+            <summary>Client for BiRequestStream</summary>
+        </member>
+        <member name="M:Nacos.BiRequestStream.BiRequestStreamClient.#ctor(Grpc.Core.ChannelBase)">
+            <summary>Creates a new client for BiRequestStream</summary>
+            <param name="channel">The channel to use to make remote calls.</param>
+        </member>
+        <member name="M:Nacos.BiRequestStream.BiRequestStreamClient.#ctor(Grpc.Core.CallInvoker)">
+            <summary>Creates a new client for BiRequestStream that uses a custom <c>CallInvoker</c>.</summary>
+            <param name="callInvoker">The callInvoker to use to make remote calls.</param>
+        </member>
+        <member name="M:Nacos.BiRequestStream.BiRequestStreamClient.#ctor">
+            <summary>Protected parameterless constructor to allow creation of test doubles.</summary>
+        </member>
+        <member name="M:Nacos.BiRequestStream.BiRequestStreamClient.#ctor(Grpc.Core.ClientBase.ClientBaseConfiguration)">
+            <summary>Protected constructor to allow creation of configured clients.</summary>
+            <param name="configuration">The client configuration.</param>
+        </member>
+        <member name="M:Nacos.BiRequestStream.BiRequestStreamClient.requestBiStream(Grpc.Core.Metadata,System.Nullable{System.DateTime},System.Threading.CancellationToken)">
+            <summary>
+            Sends a commonRequest
+            </summary>
+            <param name="headers">The initial metadata to send with the call. This parameter is optional.</param>
+            <param name="deadline">An optional deadline for the call. The call will be cancelled if deadline is hit.</param>
+            <param name="cancellationToken">An optional token for canceling the call.</param>
+            <returns>The call object.</returns>
+        </member>
+        <member name="M:Nacos.BiRequestStream.BiRequestStreamClient.requestBiStream(Grpc.Core.CallOptions)">
+            <summary>
+            Sends a commonRequest
+            </summary>
+            <param name="options">The options for the call.</param>
+            <returns>The call object.</returns>
+        </member>
+        <member name="M:Nacos.BiRequestStream.BiRequestStreamClient.NewInstance(Grpc.Core.ClientBase.ClientBaseConfiguration)">
+            <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
+        </member>
+    </members>
+</doc>
